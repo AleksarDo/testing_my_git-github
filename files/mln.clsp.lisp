@@ -1,4 +1,3 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun get-int(strinpt)
-  (print strinpt)
-       (setq int-val (read)))
+(defun get-int()
+ (setq int-val (read)))
