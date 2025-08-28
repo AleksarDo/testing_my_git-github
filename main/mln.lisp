@@ -1,17 +1,32 @@
+;;;;
+;;;;;;
+     (defvar *db* nil)
+;;;;;;;;
+(defun prompt-for-recbd()
+  (make-rcd
+   (parse-integer
+                 (prompt-read "введите длину здания, м lb")
+                 :junk-allowed t)
+   (parse-integer
+                 (prompt-read "введите ширину здания, м wb")
+                 :junk-allowed t)
+   (parse-integer
+                (prompt-read "введите высоту здания, м hb")
+                :junk-allowed t)
+))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun prompt-read (prompt)
+  (format *query-io* "~a: " prompt)
+  (force-output *query-io*)
+  (read-line *query-io*)) 
+                           
+                         
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun get-int()
-"для ввода целых чисел"
-  (loop
-(format t "только целое число")
-(setq intval (read))
-    (if (typep intval 'integer)
-        (return intval)
-        )))
-
-(defun setadb()
-  (print
-        "input lb, lengh building on the end B")
-  (setq lb (get-int))
-  )
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun make-rcd(lb wb hb)
+       (list :lb lb :wb wb :hb hb))
+  
+;;;;нетак работает где ее вставить?
+(defun add-rec2db(rc)
+         (push rc *db*))
