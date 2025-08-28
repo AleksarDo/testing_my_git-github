@@ -19,14 +19,13 @@
 (defun prompt-read (prompt)
   (format *query-io* "~a: " prompt)
   (force-output *query-io*)
-  (read-line *query-io*)) 
+  (read-line *query-io*))
                            
                          
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun make-rcd(lb wb hb)
-       (list :lb lb :wb wb :hb hb))
-  
-;;;;нетак работает где ее вставить?
-(defun add-rec2db(rc)
-         (push rc *db*))
+  (push  
+       (list :lb lb :wb wb :hb hb) *db*))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                                                                                                                                                                                                                                                                                                                                                                                       
