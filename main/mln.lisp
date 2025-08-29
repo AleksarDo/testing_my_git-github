@@ -46,4 +46,25 @@
        (* 9
            (getf (car *db*) :hb)
             (getf (car *db*) :hb)
-            3.14)) *db*))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+            3.14)) *db*))     
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;; сохранение данных в файл ;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun save-db (flname)
+  (with-open-file (out flname
+                       :direction :output
+                       :if-exists :supersede)
+    (with-standard-io-syntax 
+       (print *db* out))))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;===================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun load-db (flname)
+  (with-open-file (in flname)
+    (with-standard-io-syntax
+     (setf *db* (read in )))))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;_____________________________________
+;;;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
